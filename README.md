@@ -9,6 +9,7 @@ remaining budget at a glance. Data is saved in the current browser.
 - Monthly budgets and expense totals in Romanian lei (RON)
 - Expense dates, categories, and optional notes
 - Monthly and category spending summaries
+- Four tabs for the summary, expense form, history, and settings
 - Local browser storage, plus JSON backup export and restore
 - Optional sample data to help first-time testers explore the dashboard
 - Responsive layout built with plain HTML, CSS, and JavaScript

@@ -20,7 +20,10 @@
 
 body {
   min-width: 320px;
+  height: 100vh;
+  height: 100dvh;
   margin: 0;
+  overflow: hidden;
 }
 
 button,
@@ -67,8 +70,13 @@ button:disabled {
 
 .app-shell {
   width: min(100% - 32px, 920px);
+  height: 100%;
   margin: 0 auto;
-  padding: 42px 0 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  padding: 16px 0;
 }
 
 .page-header,
@@ -82,11 +90,12 @@ button:disabled {
 }
 
 .page-header {
-  margin-bottom: 24px;
+  flex: 0 0 auto;
+  margin: 0;
 }
 
 .eyebrow {
-  margin: 0 0 8px;
+  margin: 0 0 3px;
   color: var(--color-primary);
   font-size: 0.75rem;
   font-weight: 750;
@@ -100,7 +109,7 @@ p {
 }
 
 h1 {
-  margin-bottom: 6px;
+  margin-bottom: 0;
   font-size: clamp(1.8rem, 5vw, 2.4rem);
   letter-spacing: -0.04em;
 }
@@ -120,7 +129,7 @@ h2 {
 
 .month-picker {
   display: grid;
-  gap: 7px;
+  gap: 4px;
   min-width: 170px;
   color: var(--color-muted);
   font-size: 0.85rem;
@@ -140,10 +149,11 @@ select {
 
 .status {
   display: none;
-  margin: 0 0 18px;
-  border-radius: 8px;
-  padding: 12px 14px;
-  font-size: 0.9rem;
+  flex: 0 0 auto;
+  margin: 0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
 }
 
 .status[data-state="info"],
@@ -160,14 +170,15 @@ select {
 }
 
 .prototype-panel {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
-  margin-bottom: 16px;
+  gap: 12px;
+  margin: 0;
   border: 1px solid #d5e2f6;
   border-radius: 10px;
-  padding: 16px 18px;
+  padding: 8px 12px;
   background: #edf4ff;
 }
 
@@ -178,7 +189,7 @@ select {
 .prototype-copy {
   margin: 0;
   color: #43536b;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   line-height: 1.5;
 }
 
@@ -186,11 +197,62 @@ select {
   display: none;
 }
 
+.prototype-panel button {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 0 12px;
+  font-size: 0.82rem;
+}
+
+.tab-nav {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  border-radius: 10px;
+  padding: 4px;
+  background: #e8ecf3;
+}
+
+.tab-button {
+  min-width: 0;
+  min-height: 38px;
+  border: 1px solid transparent;
+  padding: 0 10px;
+  color: #526078;
+  background: transparent;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.tab-button:hover {
+  color: var(--color-primary-dark);
+  background: #f5f7fb;
+}
+
+.tab-button[aria-selected="true"] {
+  border-color: var(--color-border);
+  color: #1d3761;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(26 44 73 / 10%);
+}
+
+.tab-panel {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.tab-panel[hidden] {
+  display: none;
+}
+
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-bottom: 16px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .summary-card,
@@ -203,7 +265,7 @@ select {
 
 .summary-card {
   min-width: 0;
-  padding: 19px;
+  padding: 13px 15px;
 }
 
 .summary-card h2 {
@@ -213,7 +275,7 @@ select {
 }
 
 .summary-value {
-  margin: 12px 0 0;
+  margin: 6px 0 0;
   font-size: clamp(1.25rem, 4vw, 1.8rem);
   font-weight: 750;
   letter-spacing: -0.035em;
@@ -229,8 +291,19 @@ select {
 }
 
 .panel {
-  margin-bottom: 16px;
-  padding: 22px;
+  margin: 0;
+  padding: 18px;
+}
+
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-panel .budget-panel,
+.settings-panel .backup-panel {
+  gap: 8px;
 }
 
 .budget-form {
@@ -248,8 +321,8 @@ select {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: end;
-  gap: 16px;
-  margin-top: 20px;
+  gap: 14px;
+  margin-top: 16px;
 }
 
 .expense-form label {
@@ -272,8 +345,8 @@ select {
 .category-list,
 .expense-list {
   display: grid;
-  gap: 14px;
-  margin: 18px 0 0;
+  gap: 9px;
+  margin: 12px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -355,15 +428,27 @@ select {
 
 .empty-state {
   margin: 0;
-  padding: 18px 0 4px;
+  padding: 10px 0 2px;
   color: var(--color-muted);
   font-size: 0.9rem;
 }
 
 .backup-panel {
-  align-items: flex-start;
-  border-top: 1px solid var(--color-border);
-  padding-top: 22px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.history-panel {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.history-panel .expense-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .backup-panel h2 {
@@ -409,10 +494,33 @@ select {
 @media (max-width: 680px) {
   .app-shell {
     width: min(100% - 24px, 520px);
-    padding-top: 28px;
+    gap: 8px;
+    padding: 10px 0 12px;
   }
 
-  .page-header,
+  .page-header {
+    gap: 8px;
+  }
+
+  .page-header h1 {
+    font-size: 1.45rem;
+  }
+
+  .page-header .eyebrow {
+    font-size: 0.62rem;
+  }
+
+  .month-picker {
+    width: 142px;
+    min-width: 142px;
+    font-size: 0.75rem;
+  }
+
+  .month-picker input {
+    min-height: 38px;
+    padding: 6px 8px;
+  }
+
   .budget-panel,
   .backup-panel,
   .prototype-panel {
@@ -420,29 +528,41 @@ select {
     flex-direction: column;
   }
 
-  .month-picker {
+  .prototype-panel {
+    gap: 7px;
+    padding: 8px 10px;
+  }
+
+  .prototype-panel button {
     width: 100%;
   }
 
+  .tab-button {
+    min-height: 36px;
+    padding: 0 4px;
+    font-size: 0.78rem;
+  }
+
   .summary-grid {
-    gap: 8px;
+    gap: 6px;
   }
 
   .summary-card {
-    padding: 13px 11px;
+    padding: 10px 8px;
   }
 
   .summary-card h2 {
-    min-height: 2.4em;
-    font-size: 0.76rem;
+    min-height: 1.2em;
+    margin-bottom: 2px;
+    font-size: 0.72rem;
   }
 
   .summary-value {
-    font-size: clamp(1rem, 5vw, 1.4rem);
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
   }
 
   .panel {
-    padding: 18px 15px;
+    padding: 11px 10px;
   }
 
   .budget-form {
@@ -451,7 +571,8 @@ select {
 
   .expense-form {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 13px;
+    gap: 11px;
+    margin-top: 12px;
   }
 
   .note-field {
@@ -464,8 +585,8 @@ select {
   }
 
   .category-row {
-    grid-template-columns: minmax(75px, 1fr) minmax(55px, 1fr) auto;
-    gap: 9px;
+    grid-template-columns: minmax(70px, 1fr) minmax(45px, 1fr) auto;
+    gap: 7px;
   }
 
   .category-amount {
@@ -476,6 +597,7 @@ select {
   .expense-row {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 8px 12px;
+    padding-top: 10px;
   }
 
   .delete-expense {
@@ -489,21 +611,59 @@ select {
 }
 
 @media (max-width: 380px) {
+  .app-shell {
+    width: min(100% - 16px, 520px);
+    gap: 6px;
+    padding: 8px 0;
+  }
+
+  .page-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .month-picker {
+    width: 126px;
+    min-width: 126px;
+  }
+
+  .tab-nav {
+    gap: 2px;
+    padding: 3px;
+  }
+
+  .tab-button {
+    font-size: 0.72rem;
+  }
+
+  .prototype-copy {
+    font-size: 0.74rem;
+  }
+
   .summary-card {
-    padding: 11px 8px;
+    padding: 8px 6px;
   }
 
   .summary-card h2 {
-    font-size: 0.7rem;
+    font-size: 0.66rem;
   }
 
   .summary-value {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
   }
 
   .budget-form {
-    align-items: stretch;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .settings-panel .budget-form button {
+    flex-shrink: 0;
+    padding: 0 10px;
+    white-space: nowrap;
+  }
+
+  .expense-form .note-field {
+    grid-column: auto;
   }
 }
 

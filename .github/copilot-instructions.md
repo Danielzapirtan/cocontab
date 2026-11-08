@@ -6,7 +6,8 @@ Cantcol is a dependency-free static web app for monthly spending budgets.
 There is no package manager, bundler, framework, backend, or runtime service:
 
 - `index.html` contains the budget dashboard, forms, and backup controls.
-- `style.css` provides responsive styling.
+- `style.css` provides responsive styling; the app uses four tab panels and
+  keeps the page within the viewport while allowing the active panel to scroll.
 - `script.js` handles budgets, expenses, summaries, and local persistence.
 - `.github/workflows/jekyll-gh-pages.yml` publishes the repository root to
   GitHub Pages; Jekyll is only used as the Pages packaging step.

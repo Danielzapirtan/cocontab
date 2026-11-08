@@ -14,7 +14,6 @@
         <div>
           <p class="eyebrow">BUGET PERSONAL</p>
           <h1>Buget lunar</h1>
-          <p class="subtitle">Urmărește-ți cheltuielile și respectă-ți bugetul.</p>
         </div>
         <label class="month-picker" for="month-picker">
           <span>Luna</span>
@@ -32,116 +31,131 @@
         <button id="demo-data-button" type="button">Încarcă date demonstrative</button>
       </aside>
 
-      <section class="summary-grid" aria-label="Rezumatul lunii">
-        <article class="summary-card budget-card">
-          <h2>Buget lunar</h2>
-          <p id="summary-budget" class="summary-value">—</p>
-        </article>
-        <article class="summary-card">
-          <h2>Cheltuit</h2>
-          <p id="summary-spent" class="summary-value">—</p>
-        </article>
-        <article class="summary-card">
-          <h2>Rămas</h2>
-          <p id="summary-remaining" class="summary-value">—</p>
-        </article>
-      </section>
+      <nav class="tab-nav" role="tablist" aria-label="Secțiunile aplicației">
+        <button id="tab-summary" class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="panel-summary" tabindex="0">Rezumat</button>
+        <button id="tab-expense" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-expense" tabindex="-1">Adaugă</button>
+        <button id="tab-history" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-history" tabindex="-1">Istoric</button>
+        <button id="tab-settings" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-settings" tabindex="-1">Setări</button>
+      </nav>
 
-      <section class="panel budget-panel" aria-labelledby="budget-heading">
-        <div>
-          <h2 id="budget-heading">Stabilește bugetul</h2>
-          <p class="helper-text">Limita de cheltuieli pentru luna selectată, în RON.</p>
-        </div>
-        <form id="budget-form" class="budget-form">
-          <label class="sr-only" for="budget-amount">Buget lunar în RON</label>
-          <input
-            id="budget-amount"
-            type="number"
-            min="0"
-            step="0.01"
-            inputmode="decimal"
-            placeholder="ex. 3000,00"
-            required
-          >
-          <button type="submit">Salvează bugetul</button>
-        </form>
-      </section>
+      <section id="panel-summary" class="tab-panel" role="tabpanel" aria-labelledby="tab-summary" tabindex="0">
+        <section class="summary-grid" aria-label="Rezumatul lunii">
+          <article class="summary-card budget-card">
+            <h2>Buget lunar</h2>
+            <p id="summary-budget" class="summary-value">—</p>
+          </article>
+          <article class="summary-card">
+            <h2>Cheltuit</h2>
+            <p id="summary-spent" class="summary-value">—</p>
+          </article>
+          <article class="summary-card">
+            <h2>Rămas</h2>
+            <p id="summary-remaining" class="summary-value">—</p>
+          </article>
+        </section>
 
-      <section class="panel" aria-labelledby="expense-heading">
-        <div class="section-heading">
-          <div>
-            <h2 id="expense-heading">Adaugă o cheltuială</h2>
-            <p class="helper-text">Notează cheltuielile pe măsură ce apar.</p>
+        <section class="panel category-panel" aria-labelledby="categories-heading">
+          <div class="section-heading">
+            <div>
+              <h2 id="categories-heading">Cheltuieli pe categorii</h2>
+              <p class="helper-text">Progresul este raportat la bugetul lunar.</p>
+            </div>
           </div>
-        </div>
-        <form id="expense-form" class="expense-form">
-          <label>
-            <span>Data</span>
-            <input id="expense-date" type="date" required>
-          </label>
-          <label>
-            <span>Categorie</span>
-            <select id="expense-category" required>
-              <option value="Food">Alimente</option>
-              <option value="Housing">Locuință</option>
-              <option value="Transport">Transport</option>
-              <option value="Bills">Facturi</option>
-              <option value="Health">Sănătate</option>
-              <option value="Personal">Personal</option>
-              <option value="Other">Altele</option>
-            </select>
-          </label>
-          <label>
-            <span>Sumă (RON)</span>
+          <ul id="category-list" class="category-list"></ul>
+        </section>
+      </section>
+
+      <section id="panel-expense" class="tab-panel" role="tabpanel" aria-labelledby="tab-expense" tabindex="0" hidden>
+        <section class="panel" aria-labelledby="expense-heading">
+          <div class="section-heading">
+            <div>
+              <h2 id="expense-heading">Adaugă o cheltuială</h2>
+              <p class="helper-text">Notează cheltuielile pe măsură ce apar.</p>
+            </div>
+          </div>
+          <form id="expense-form" class="expense-form">
+            <label>
+              <span>Data</span>
+              <input id="expense-date" type="date" required>
+            </label>
+            <label>
+              <span>Categorie</span>
+              <select id="expense-category" required>
+                <option value="Food">Alimente</option>
+                <option value="Housing">Locuință</option>
+                <option value="Transport">Transport</option>
+                <option value="Bills">Facturi</option>
+                <option value="Health">Sănătate</option>
+                <option value="Personal">Personal</option>
+                <option value="Other">Altele</option>
+              </select>
+            </label>
+            <label>
+              <span>Sumă (RON)</span>
+              <input
+                id="expense-amount"
+                type="number"
+                min="0.01"
+                step="0.01"
+                inputmode="decimal"
+                placeholder="ex. 25,50"
+                required
+              >
+            </label>
+            <label class="note-field">
+              <span>Detalii <span class="optional">(opțional)</span></span>
+              <input id="expense-note" type="text" maxlength="120" placeholder="Pentru ce a fost cheltuiala?">
+            </label>
+            <button class="add-expense-button" type="submit">Adaugă cheltuiala</button>
+          </form>
+        </section>
+      </section>
+
+      <section id="panel-history" class="tab-panel" role="tabpanel" aria-labelledby="tab-history" tabindex="0" hidden>
+        <section class="panel history-panel" aria-labelledby="transactions-heading">
+          <div class="section-heading">
+            <div>
+              <h2 id="transactions-heading">Cheltuieli</h2>
+              <p class="helper-text">Cheltuielile din luna selectată.</p>
+            </div>
+          </div>
+          <ul id="expense-list" class="expense-list"></ul>
+        </section>
+      </section>
+
+      <section id="panel-settings" class="tab-panel settings-panel" role="tabpanel" aria-labelledby="tab-settings" tabindex="0" hidden>
+        <section class="panel budget-panel" aria-labelledby="budget-heading">
+          <div>
+            <h2 id="budget-heading">Stabilește bugetul</h2>
+            <p class="helper-text">Bugetul lunii, în RON.</p>
+          </div>
+          <form id="budget-form" class="budget-form">
+            <label class="sr-only" for="budget-amount">Buget lunar în RON</label>
             <input
-              id="expense-amount"
+              id="budget-amount"
               type="number"
-              min="0.01"
+              min="0"
               step="0.01"
               inputmode="decimal"
-              placeholder="ex. 25,50"
+              placeholder="ex. 3000,00"
               required
             >
-          </label>
-          <label class="note-field">
-            <span>Detalii <span class="optional">(opțional)</span></span>
-            <input id="expense-note" type="text" maxlength="120" placeholder="Pentru ce a fost cheltuiala?">
-          </label>
-          <button class="add-expense-button" type="submit">Adaugă cheltuiala</button>
-        </form>
-      </section>
+            <button type="submit">Salvează bugetul</button>
+          </form>
+        </section>
 
-      <section class="panel" aria-labelledby="categories-heading">
-        <div class="section-heading">
+        <section class="panel backup-panel" aria-labelledby="backup-heading">
           <div>
-            <h2 id="categories-heading">Cheltuieli pe categorii</h2>
-            <p class="helper-text">Progresul este raportat la bugetul lunar.</p>
+            <h2 id="backup-heading">Fă o copie de siguranță</h2>
+            <p class="helper-text">Datele rămân în acest browser. Fă o copie înainte de a schimba dispozitivul.</p>
           </div>
-        </div>
-        <ul id="category-list" class="category-list"></ul>
-      </section>
-
-      <section class="panel" aria-labelledby="transactions-heading">
-        <div class="section-heading">
-          <div>
-            <h2 id="transactions-heading">Cheltuieli</h2>
-            <p class="helper-text">Cheltuielile din luna selectată.</p>
+          <div class="backup-actions">
+            <button id="export-button" class="button-secondary" type="button">Exportă copia</button>
+            <button id="import-button" class="button-secondary" type="button">Importă copia</button>
+            <input id="import-file" class="sr-only" type="file" accept="application/json,.json">
           </div>
-        </div>
-        <ul id="expense-list" class="expense-list"></ul>
+        </section>
       </section>
-
-      <footer class="backup-panel">
-        <div>
-          <h2>Fă o copie de siguranță</h2>
-          <p class="helper-text">Datele rămân în acest browser. Exportă o copie înainte de a șterge datele browserului sau de a schimba dispozitivul.</p>
-        </div>
-        <div class="backup-actions">
-          <button id="export-button" class="button-secondary" type="button">Exportă copia</button>
-          <button id="import-button" class="button-secondary" type="button">Restaurează copia</button>
-          <input id="import-file" class="sr-only" type="file" accept="application/json,.json">
-        </div>
-      </footer>
     </main>
   </body>
 </html>

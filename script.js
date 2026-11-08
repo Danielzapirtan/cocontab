@@ -33,6 +33,7 @@ const summarySpent = document.getElementById("summary-spent");
 const summaryRemaining = document.getElementById("summary-remaining");
 const categoryList = document.getElementById("category-list");
 const expenseList = document.getElementById("expense-list");
+const tabButtons = [...document.querySelectorAll('[role="tab"]')];
 
 function emptyData() {
   return { version: 1, budgets: {}, expenses: [] };
@@ -132,6 +133,38 @@ function showStatus(message, state = "info") {
   statusMessage.dataset.state = state;
 }
 
+function activateTab(selectedTab, moveFocus = false) {
+  for (const tab of tabButtons) {
+    const isSelected = tab === selectedTab;
+    tab.setAttribute("aria-selected", String(isSelected));
+    tab.tabIndex = isSelected ? 0 : -1;
+    document.getElementById(tab.getAttribute("aria-controls")).hidden = !isSelected;
+  }
+  if (moveFocus) {
+    selectedTab.focus();
+  }
+}
+
+for (const [index, tab] of tabButtons.entries()) {
+  tab.addEventListener("click", () => activateTab(tab));
+  tab.addEventListener("keydown", (event) => {
+    let nextIndex;
+    if (event.key === "ArrowRight") {
+      nextIndex = (index + 1) % tabButtons.length;
+    } else if (event.key === "ArrowLeft") {
+      nextIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+    } else if (event.key === "Home") {
+      nextIndex = 0;
+    } else if (event.key === "End") {
+      nextIndex = tabButtons.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    activateTab(tabButtons[nextIndex], true);
+  });
+}
+
 let data;
 let storageAvailable = true;
 monthPicker.value = getLocalDate().slice(0, 7);
@@ -140,7 +173,6 @@ expenseDate.value = getLocalDate();
 
 try {
   data = loadData();
-  showStatus("Modificările sunt salvate în acest browser.", "success");
 } catch (error) {
   data = emptyData();
   storageAvailable = false;
@@ -200,10 +232,17 @@ function renderCategories(monthlyExpenses, spent, budget) {
   }
 
   categoryList.replaceChildren();
-  const hasExpenses = monthlyExpenses.length > 0;
+  if (monthlyExpenses.length === 0) {
+    const empty = document.createElement("li");
+    empty.className = "empty-state";
+    empty.textContent = "Adaugă o cheltuială pentru a vedea rezumatul pe categorii.";
+    categoryList.appendChild(empty);
+    return;
+  }
+
   for (const category of CATEGORIES) {
     const amount = totals.get(category);
-    if (amount === 0 && hasExpenses) {
+    if (amount === 0) {
       continue;
     }
 
