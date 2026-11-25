@@ -9,42 +9,40 @@
 <body>
   <div class="viewport">
     <div class="controls">
-    <button id="minus" class="button nav" onclick="back()">-</button>
-    <button id="plus" class="button nav" onclick="fwd()">+</button>
+      <button id="minus" class="button nav" onclick="back()">-</button>
+      <button id="plus" class="button nav" onclick="fwd()">+</button>
     </div>
     <div id="tab1" class="tab tab1">
-    <div class="buget-container">
-    <label for="buget-input">Buget: </label>
-    <input type="number" id="buget-input" class="number-input" placeholder="10000" min="256" max=65536">
-    <button id="save-buget" class="button submit" onclick="saveBuget()">Salveaza</button>
-    </div>
-    <div class="new-spent">
-    <label for="produs">Produs</label>
-    <input type="text" id="produs" class="text-input" placeholder="paine">
-    <label for="pret">Pret:</label>
-    <input type="number" id="pret" class="number-input" placeholder="100" min="1" max="10000">
-    <input type="radio" name="categorie" id="casa" class="radio" value="casa" selected>
-    <label for="casa">Casa</label>
-    <input type="radio" name="categorie" id="cumparaturi" class="radio" value="cumparaturi">
-    <label for="cumparaturi">Cumparaturi</label>
-    <button id="save-spent" class="button submit" onclick="saveSpent()">Salveaza</button>
-    </div>
+      <div class="buget-container">
+        <label for="buget-input">Buget: </label>
+        <input type="number" id="buget-input" class="number-input" placeholder="10000" min="256" max=65536">
+        <button id="save-buget" class="button submit" onclick="saveBuget()">Salveaza</button>
+      </div>
+      <div class="new-spent">
+        <label for="produs">Produs</label>
+        <input type="text" id="produs" class="text-input" placeholder="paine">
+        <label for="pret">Pret:</label>
+        <input type="number" id="pret" class="number-input" placeholder="100" min="1" max="10000">
+        <label for="categorie">Categorie</label>
+        <input type="text" id="categorie" class="text-input" value="cumparaturi">
+        <button id="save-spent" class="button submit" onclick="saveSpent()">Salveaza</button>
+      </div>
     </div>
     <div id="tab2" class="tab tab2 disabled">
-    <label for="lcasa">Casa</label>
-    <div class="lista casa" id="lcasa">
-    </div>
-    <label for="lcumparaturi">Cumparaturi</label>
-    <div class="lista cumparaturi" id="lcumparaturi">
-    </div>
+      <label for="lcasa">Casa</label>
+      <div class="lista casa" id="lcasa">
+      </div>
+      <label for="lcumparaturi">Cumparaturi</label>
+      <div class="lista cumparaturi" id="lcumparaturi">
+      </div>
     </div>
     <div id="tab3" class="tab tab3 disabled">
-    <label for="buget">Buget</label>
-    <textarea class="money" id="buget" readonly>0</textarea>
-    <label for="chelt">Cheltuieli</label>
-    <textarea class="money" id="chelt" readonly>0</textarea>
-    <label for="ramas">Ramas</label>
-    <textarea class="money" id="ramas" readonly>0</textarea>
+      <label for="buget">Buget</label>
+      <textarea class="money" id="buget" readonly>0</textarea>
+      <label for="chelt">Cheltuieli</label>
+      <textarea class="money" id="chelt" readonly>0</textarea>
+      <label for="ramas">Ramas</label>
+      <textarea class="money" id="ramas" readonly>0</textarea>
     </div>
   </div>
   <script src="script.js">

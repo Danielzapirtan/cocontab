@@ -1,10 +1,10 @@
 * {
-	--width: 72mm;
-	--height: 160mm;
-	overflow-x: auto;
-	overflow-y: auto;
-	font-family: Monospace;
-	font-size: 5mm;
+  --width: 72mm;
+  --height: 160mm;
+  overflow-x: auto;
+  overflow-y: auto;
+  font-family: Monospace;
+  font-size: 5mm;
 }
 
 .viewport {
@@ -22,7 +22,7 @@
   border: 1mm solid #222;
   background-color: #ee5;
   margin-left: 2mm;
-  margin-top: 2mm; 
+  margin-top: 2mm;
 }
 
 .slider {
@@ -58,7 +58,8 @@
   color: white;
 }
 
-#save-buget, #save-spent {
+#save-buget,
+#save-spent {
   width: 36mm;
   margin-left: 10mm;
   align: center;
@@ -96,6 +97,13 @@
   overflow-y: auto;
 }
 
+.inreg {
+  display: block flex;
+  flex-direction: row;
+  width: 55mm;
+  overflow: auto;
+}
+
 .field {
   display: block;
   width: 27mm;
@@ -108,4 +116,3 @@
   margin-left: 14mm;
   margin-top: 2mm;
 }
-
