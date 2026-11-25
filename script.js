@@ -8,13 +8,13 @@ function saveToLocalStorage() {
   localStorage.setItem("bc", JSON.stringify(bcv));
 }
 
-/*if (localStorage.getItem("bc")) {
+if (localStorage.getItem("bc")) {
   const bcv = JSON.parse(localStorage.getItem("bc"));
   sold = bcv.sold;
   db = bcv.db;
-}*/
-sold = 0;
-db = [];
+}
+/*sold = 0;
+db = [];*/
 
 function switchTab(tabno) {
   const tab1 = document.getElementById("tab1");
