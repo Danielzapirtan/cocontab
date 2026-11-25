@@ -1,0 +1,9 @@
+@media screen and (orientation: portrait) {
+	@import "portrait.css"
+}
+
+@media screen and (orientation: landscape) {
+	@import "landscape.css"
+}
+
+
