@@ -4,7 +4,7 @@
 	overflow-x: auto;
 	overflow-y: auto;
 	font-family: Monospace;
-	font-size: 7vw;
+	font-size: 5mm;
 }
 
 .viewport {
@@ -62,6 +62,12 @@
   width: 36mm;
   margin-left: 10mm;
   align: center;
+}
+
+.button .nav {
+  width: 7mm;
+  margin-left: 4mm;
+  text-align: center;
 }
 
 .new-spent {
