@@ -15,12 +15,12 @@ function switchTab(tabno) {
 	tab3.classList.remove("disabled");
 }
 
-function minus() {
+function back() {
   currtab = (curtab + 2) % 3;
   switchTab(currtab);
 }
 
-function plus() {
+function fwd() {
   currtab = (curtab + 1) % 3;
   switchTab(currtab);
 }
