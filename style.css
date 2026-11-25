@@ -16,3 +16,82 @@
   margin-top: 10mm;
 }
 
+.slider-container {
+  width: 68mm;
+  height: 10mm;
+  border: 1mm solid #222;
+  background-color: #ee5;
+  margin-left: 2mm;
+  margin-top: 2mm; 
+}
+
+.slider {
+  width: 64mm;
+  color: magenta;
+}
+
+.tab {
+  border: 1mm solid #222;
+  width: 64mm;
+  height: 142mm;
+  background: #ddc;
+  margin-left: 2mm;
+  margin-top: 2mm;
+}
+
+.disabled {
+  display: none;
+}
+
+.buget-container {
+  display: block flex;
+  flex-direction: column;
+  width: 56mm;
+  border: 1mm solid #222;
+  height: 32mm;
+  margin-left: 2mm;
+  margin-top: 2mm;
+}
+
+.button {
+  background-color: olive;
+  color: white;
+}
+
+#save-buget, #save-spent {
+  width: 36mm;
+  margin-left: 10mm;
+  align: center;
+}
+
+.new-spent {
+  display: block flex;
+  flex-direction: column;
+  width: 56mm;
+  border: 1mm solid #222;
+  height: 96mm;
+  margin-left: 2mm;
+  margin-top: 2mm;
+}
+
+.radio {
+  align: left;
+}
+
+.lista {
+  display: block flex;
+  flex-direction: column;
+  width: 56mm;
+  border: 1mm solid #222;
+  height: 56mm;
+  margin-left: 2mm;
+  margin-top: 2mm;
+  overflow: auto;
+}
+
+.money {
+  width: 32mm;
+  margin-left: 14mm;
+  margin-top: 2mm;
+}
+
