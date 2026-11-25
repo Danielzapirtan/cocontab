@@ -16,12 +16,12 @@ function switchTab(tabno) {
 }
 
 function back() {
-  currtab = (curtab + 2) % 3;
+  currtab = (currtab + 2) % 3;
   switchTab(currtab);
 }
 
 function fwd() {
-  currtab = (curtab + 1) % 3;
+  currtab = (currtab + 1) % 3;
   switchTab(currtab);
 }
 
