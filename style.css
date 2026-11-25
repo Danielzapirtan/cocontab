@@ -93,6 +93,14 @@
   margin-left: 2mm;
   margin-top: 2mm;
   overflow: auto;
+  overflow-y: auto;
+}
+
+.field {
+  display: block;
+  width: 27mm;
+  border: 1mm solid #222;
+  overflow: auto;
 }
 
 .money {
