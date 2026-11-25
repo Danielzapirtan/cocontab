@@ -1,15 +1,18 @@
 * {
-	--width 64mm;
-	--height 144mm;
+	--width: 72mm;
+	--height: 160mm;
 	overflow-x: auto;
 	overflow-y: auto;
 	font-family: Monospace;
 	font-size: 7vw;
 }
 
-body {
+.viewport {
   width: var(--width);
   height: var(--height);
+  border: 3px solid #222;
+  background-color: #eee;
+  margin-left: 10mm;
+  margin-top: 10mm;
 }
-
 
