@@ -1,9 +1,15 @@
-@media screen and (orientation: portrait) {
-	@import "portrait.css"
+* {
+	--width 64mm;
+	--height 144mm;
+	overflow-x: auto;
+	overflow-y: auto;
+	font-family: Monospace;
+	font-size: 7vw;
 }
 
-@media screen and (orientation: landscape) {
-	@import "landscape.css"
+body {
+  width: var(--width);
+  height: var(--height);
 }
 
 
