@@ -11,6 +11,7 @@ function saveToLocalStorage() {
 if (localStorage.getItem("bc")) {
   const bcv = JSON.parse(localStorage.getItem("bc"));
   sold = bcv.sold;
+  updateBuget(sold);
   db = bcv.db;
 }
 /*sold = 0;
