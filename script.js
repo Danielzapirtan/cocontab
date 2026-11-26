@@ -132,7 +132,7 @@ flag.addEventListener("click", (e) => {
   if (bugetv - cheltv !== ramasv) {
     flag.classlist.add("error");
   }
-  if (!buget) {
+  if (!bugetv) {
     flag.classlist.add("error");
   }
 });
