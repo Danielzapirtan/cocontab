@@ -65,6 +65,13 @@
   align: center;
 }
 
+#clear-all {
+  width: 36mm;
+  margin-top: 8mm;
+  margin-left: 8mm;
+  align: center;
+}
+
 .button .nav {
   width: 7mm;
   margin-left: 4mm;
@@ -76,7 +83,16 @@
   flex-direction: column;
   width: 56mm;
   border: 1mm solid #222;
-  height: 96mm;
+  height: 72mm;
+  margin-left: 2mm;
+  margin-top: 2mm;
+}
+
+.misc {
+  display: block;
+  width: 56mm;
+  border: 1mm solid #222;
+  height: 24mm;
   margin-left: 2mm;
   margin-top: 2mm;
 }

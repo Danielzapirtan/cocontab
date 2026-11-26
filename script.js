@@ -1,4 +1,6 @@
 var currtab = 0;
+var sold;
+var db;
 
 function saveToLocalStorage() {
   const bcv = {
@@ -7,14 +9,6 @@ function saveToLocalStorage() {
   };
   localStorage.setItem("bc", JSON.stringify(bcv));
 }
-
-if (localStorage.getItem("bc")) {
-  const bcv = JSON.parse(localStorage.getItem("bc"));
-  sold = bcv.sold;
-  db = bcv.db;
-}
-/*sold = 0;
-db = [];*/
 
 function switchTab(tabno) {
   const tab1 = document.getElementById("tab1");
@@ -80,7 +74,8 @@ function updateBuget(sold) {
 
 function saveBuget() {
   const bugetInput = document.getElementById("buget-input");
-  updateBuget(bugetInput.value);
+  sold = bugetInput.value;
+  updateBuget(sold);
   saveToLocalStorage();
 }
 
@@ -98,3 +93,24 @@ function saveSpent() {
   updateBuget(document.getElementById("buget").value);
   updateSpendings();
 }
+
+function clearAll() {
+  sold = 0;
+  db = [];
+  saveToLocalStorage();
+  updateBuget(0);
+  updateSpendings();
+}
+
+if (localStorage.getItem("bc")) {
+  const bcv = JSON.parse(localStorage.getItem("bc"));
+  sold = bcv.sold;
+  db = bcv.db;
+  saveToLocalStorage();
+  updateBuget(sold);
+  updateSpendings();
+} else {
+  sold = 0;
+  db = [];
+}
+
