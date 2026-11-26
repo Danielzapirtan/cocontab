@@ -13,8 +13,11 @@ if (localStorage.getItem("bc")) {
   sold = bcv.sold;
   db = bcv.db;
 }
-/*sold = 0;
-db = [];*/
+
+function clearAll() {
+  sold = 0;
+  db = [];
+}
 
 function switchTab(tabno) {
   const tab1 = document.getElementById("tab1");
