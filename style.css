@@ -117,7 +117,7 @@
   display: block flex;
   flex-direction: row;
   width: 55mm;
-  overflow: auto;
+  min-height: 8mm;
 }
 
 .field {
