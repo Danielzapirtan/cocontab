@@ -16,8 +16,10 @@
   margin-top: 10mm;
 }
 
-.slider-container {
-  width: 68mm;
+.controls {
+  display: block flex;
+  flex-direction: row;
+  width: 64mm;
   height: 10mm;
   border: 1mm solid #222;
   background-color: #ee5;
@@ -25,9 +27,19 @@
   margin-top: 2mm;
 }
 
-.slider {
-  width: 64mm;
-  color: magenta;
+.flag {
+  width: 4mm;
+  height: 4mm;
+  align: right;
+  background-color: green;
+}
+
+.flag.done {
+  background-color: blue;
+}
+
+.flag.error {
+  background-color: red;
 }
 
 .tab {

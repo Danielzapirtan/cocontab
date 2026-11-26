@@ -2,6 +2,8 @@ var currtab = 0;
 var sold;
 var db;
 
+const flag = document.querySelector('.flag');
+
 function saveToLocalStorage() {
   const bcv = {
     sold: sold,
@@ -25,11 +27,13 @@ function switchTab(tabno) {
 function back() {
   currtab = (currtab + 2) % 3;
   switchTab(currtab);
+  flag.classList.add("done");
 }
 
 function fwd() {
   currtab = (currtab + 1) % 3;
   switchTab(currtab);
+  flag.classList.add("done");
 }
 
 function addField(el, field) {
@@ -77,6 +81,7 @@ function saveBuget() {
   sold = bugetInput.value;
   updateBuget(sold);
   saveToLocalStorage();
+  flag.classList.add("done");
 }
 
 function saveSpent() {
@@ -92,6 +97,7 @@ function saveSpent() {
   saveToLocalStorage();
   updateBuget(document.getElementById("buget").value);
   updateSpendings();
+  flag.classList.add("done");
 }
 
 function clearAll() {
@@ -100,6 +106,7 @@ function clearAll() {
   saveToLocalStorage();
   updateBuget(0);
   updateSpendings();
+  flag.classList.add("done");
 }
 
 if (localStorage.getItem("bc")) {
@@ -114,3 +121,18 @@ if (localStorage.getItem("bc")) {
   db = [];
 }
 
+flag.addEventListener("click", (e) => {
+  const buget = document.getElementById("buget");
+  const chelt = document.getElementById("chelt");
+  const ramas = document.getElementById("ramas");
+  const bugetv = buget.vslue;
+  const cheltv = chelt.value;
+  const ramasv = ramas.value;
+  flag.classList.remove("done");
+  if (bugetv - cheltv !== ramasv) {
+    flag.classlist.add("error");
+  }
+  if (!buget) {
+    flag.classlist.add("error");
+  }
+});
