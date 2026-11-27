@@ -125,14 +125,14 @@ flag.addEventListener("click", (e) => {
   const buget = document.getElementById("buget");
   const chelt = document.getElementById("chelt");
   const ramas = document.getElementById("ramas");
-  const bugetv = buget.vslue;
+  const bugetv = buget.value;
   const cheltv = chelt.value;
   const ramasv = ramas.value;
   flag.classList.remove("done");
   if (bugetv - cheltv !== ramasv) {
-    flag.classlist.add("error");
+    flag.classList.add("error");
   }
   if (!bugetv) {
-    flag.classlist.add("error");
+    flag.classList.add("error");
   }
 });
