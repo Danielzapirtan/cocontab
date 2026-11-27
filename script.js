@@ -79,6 +79,8 @@ function updateBuget(sold) {
 function saveBuget() {
   const bugetInput = document.getElementById("buget-input");
   sold = bugetInput.value;
+  if (! isNumber(sold))
+	alert("eroarea 10");
   updateBuget(sold);
   saveToLocalStorage();
   flag.classList.add("done");
