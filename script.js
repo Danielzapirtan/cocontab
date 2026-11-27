@@ -129,10 +129,5 @@ flag.addEventListener("click", (e) => {
   const cheltv = chelt.value;
   const ramasv = ramas.value;
   flag.classList.remove("done");
-  if (bugetv - cheltv !== ramasv) {
-    flag.classList.add("error");
-  }
-  if (!bugetv) {
-    flag.classList.add("error");
-  }
+  flag.classList.remove("error");
 });

@@ -28,8 +28,9 @@
 }
 
 .flag {
-  width: 4mm;
-  height: 4mm;
+  margin-left: 22mm;
+  width: 9mm;
+  height: 8mm;
   align: right;
   background-color: green;
 }
