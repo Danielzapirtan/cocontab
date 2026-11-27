@@ -78,7 +78,7 @@ function updateBuget(sold) {
 
 function saveBuget() {
   const bugetInput = document.getElementById("buget-input");
-  sold = bugetInput.value;
+  sold = bugetInput.value || 0;
   updateBuget(sold);
   saveToLocalStorage();
   flag.classList.add("done");
@@ -129,5 +129,4 @@ flag.addEventListener("click", (e) => {
   const cheltv = chelt.value;
   const ramasv = ramas.value;
   flag.classList.remove("done");
-  flag.classList.remove("error");
 });
